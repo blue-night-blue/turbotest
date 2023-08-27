@@ -7,16 +7,11 @@
     </div>
 
     <div style="margin:0 1em;">
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "btn btn--light" %>                
+      <%= link_to "Edit",edit_quote_path(quote) %>
     </div>
 
     <div>
-      <%= button_to "Delete",
-                    quote_path(quote),
-                    method: :delete,
-                    class: "btn btn--light" %>
+      <%= button_to "Delete",quote_path(quote),method: :delete %>
     </div>
                     
   </div>

@@ -14,13 +14,14 @@ class QuotesController < ApplicationController
 
   def create
     @quote = Quote.new(quote_params)
+    name = @quote.name
   
     if @quote.save
       respond_to do |format|
         format.html { redirect_to quotes_path, notice: "Quote was successfully created." }
 
         # ■■■■■■■■■■turbo該当箇所■■■■■■■■■■
-        format.turbo_stream { flash.now.notice = "投稿しました" }
+        format.turbo_stream { flash.now.notice = "#{name}を投稿しました" }
       end
     else
       render :new, status: :unprocessable_entity
@@ -28,12 +29,13 @@ class QuotesController < ApplicationController
   end
   
   def update
+    name = @quote.name
     respond_to do |format|
       if @quote.update(quote_params)
         format.html { redirect_to quotes_path, notice: "Quote was successfully updated." }
         
         # ■■■■■■■■■■turbo該当箇所■■■■■■■■■■
-        format.turbo_stream { flash.now[:notice] = "修正しました" }
+        format.turbo_stream { flash.now[:notice] = "#{name}を修正しました" }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -41,13 +43,14 @@ class QuotesController < ApplicationController
   end
 
   def destroy
+    name = @quote.name
     @quote.destroy
   
     respond_to do |format|
       format.html { redirect_to quotes_path, notice: "Quote was successfully destroyed." }
         
       # ■■■■■■■■■■turbo該当箇所■■■■■■■■■■
-      format.turbo_stream { flash.now[:notice] = "削除しました" }
+      format.turbo_stream { flash.now[:notice] = "#{name}を削除しました" }
     end
   end
 
