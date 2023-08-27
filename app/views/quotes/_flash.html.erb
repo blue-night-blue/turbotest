@@ -1,4 +1,4 @@
 <!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
-<% if notice %>
-  <div><%= notice %></div>
-<% end %>
+<div id="flash">
+  <%= notice.presence %>
+</div>

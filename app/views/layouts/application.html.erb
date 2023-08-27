@@ -8,16 +8,13 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= yield(:head) %>
   </head>
 
   <body>
     
-        
-    <div id="flash">
-      
-      <!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
-      <%= render "flash" %>
-    </div>
+    <!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
+    <%= render "flash" %>
 
     <%= yield %>
 
