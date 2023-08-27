@@ -1,14 +1,14 @@
-<div>
-  <% if quote.errors.any? %>
-    <% quote.errors.each do |error| %>
-        <%= error.full_message %>
-    <% end %>
+<% if quote.errors.any? %>
+  <% quote.errors.each do |error| %>
+    <div class="container_error">
+      <%= error.full_message %>
+    </div>
   <% end %>
-</div>
+<% end %>
 
 <div>
   <%= form_with(model: quote) do |form| %>
-      <%= form.text_field :name %>
-      <%= form.submit %>
+    <%= form.text_field :name %>
+    <%= form.submit %>
   <% end %>
 </div>

@@ -14,7 +14,31 @@
  *= require_self
  */
 
+.container_new{
+    margin-bottom: 2em;
+}
+
+.container_flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+#flash{
+    color: green;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+.container_error{
+    width: 100%;
+    color: red;
+}
 
 .field_with_errors{
     display: inline-block;
 }
+

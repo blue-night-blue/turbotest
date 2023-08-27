@@ -1,6 +1,6 @@
 <!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
 <%= turbo_frame_tag quote do %>
-  <div style="display:flex; margin-bottom:2em;">
+  <div class="container_flex">
     <%= render "form", quote: quote %>
     <div>
       <%= button_to "Delete",quote_path(quote),method: :delete %>
