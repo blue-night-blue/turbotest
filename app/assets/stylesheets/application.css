@@ -15,7 +15,6 @@
  */
 
 
-#posts div{
-    display:flex;
+.field_with_errors{
+    display: inline-block;
 }
-

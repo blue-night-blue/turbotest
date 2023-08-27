@@ -3,6 +3,7 @@ class QuotesController < ApplicationController
 
   def index
     @quotes = Quote.ordered
+    @quote = Quote.new
   end
 
   def new
@@ -30,14 +31,16 @@ class QuotesController < ApplicationController
   
   def update
     name = @quote.name
-    respond_to do |format|
-      if @quote.update(quote_params)
-        format.html { redirect_to quotes_path, notice: "Quote was successfully updated." }
-        
-        # ■■■■■■■■■■turbo該当箇所■■■■■■■■■■
-        format.turbo_stream { flash.now[:notice] = "#{name}を修正しました" }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
+    if @quote.update(quote_params) && @quote.saved_change_to_attribute?(:name)
+      respond_to do |format|
+        if @quote.update(quote_params)
+          format.html { redirect_to quotes_path, notice: "Quote was successfully updated." }
+          
+          # ■■■■■■■■■■turbo該当箇所■■■■■■■■■■
+          format.turbo_stream { flash.now[:notice] = "#{name}を修正しました" }
+        else
+          format.html { render :edit, status: :unprocessable_entity }
+        end
       end
     end
   end

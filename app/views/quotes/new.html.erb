@@ -6,7 +6,7 @@
   </div>
 
   <!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
-  <%= turbo_frame_tag @quote do %>
+  <%= turbo_frame_tag "new_quote" do %>
     <%= render "form", quote: @quote %>
   <% end %>
 </main>
