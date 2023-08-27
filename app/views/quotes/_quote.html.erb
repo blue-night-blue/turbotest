@@ -1,16 +1,23 @@
+<!-- ■■■■■■■■■■turbo該当箇所■■■■■■■■■■ -->
 <%= turbo_frame_tag quote do %>
-  <div class="quote">
-    <%= link_to quote.name,
-                quote_path(quote),
-                data: { turbo_frame: "_top" } %>
-    <div class="quote__actions">
+  <div class="quote" style="display: flex; margin-bottom:1em;">
+    
+    <div>
+      <%= quote.name %>
+    </div>
+
+    <div style="margin:0 1em;">
+      <%= link_to "Edit",
+                  edit_quote_path(quote),
+                  class: "btn btn--light" %>                
+    </div>
+
+    <div>
       <%= button_to "Delete",
                     quote_path(quote),
                     method: :delete,
                     class: "btn btn--light" %>
-      <%= link_to "Edit",
-                  edit_quote_path(quote),
-                  class: "btn btn--light" %>
     </div>
+                    
   </div>
 <% end %>
